@@ -99,9 +99,9 @@ const Welcome = () => {
   ];
 
   return (
-    <article className="w-full flex flex-col items-center pt-4 pb-[80px]">
+    <article className="w-full flex flex-col items-center pt-6">
       <h3 className="font-semibold text-3xl">Chat GPT</h3>
-      <p className="text-sm text-gray-400 mb-4">Ver 4.0 Mar 14</p>
+      <p className="text-sm text-gray-400 mb-8">Ver 4.0 Mar 14</p>
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 max-w-[600px]">
         {options.map((item) => {
           return (
@@ -112,7 +112,11 @@ const Welcome = () => {
               }`}
             >
               {item.icon && item.icon}
-              {item.title && <span>{item.title}</span>}
+              {item.title && (
+                <span className={`group-hover:text-blue-500 duration-200`}>
+                  {item.title}
+                </span>
+              )}
               <p className="group-hover:text-blue-500 duration-200 text-[12px] leading-4 md:text-sm text-gray-400 decoration-slice text-center lg:text-left">
                 {item.desc}
               </p>

@@ -101,13 +101,9 @@ const DropDown = () => {
         ></span>
       </button>
       <motion.ul
-        initial={{ maxWidth: "0", maxHeight: "0" }}
-        animate={
-          isOpen
-            ? { maxWidth: "150px", maxHeight: "150px" }
-            : { maxWidth: "0", maxHeight: "0" }
-        }
-        className={`absolute top-full right-0 bg-white shadow-zinc-400 shadow rounded overflow-hidden`}
+        initial={{ maxHeight: "0" }}
+        animate={isOpen ? { maxHeight: "200px" } : { maxHeight: "0" }}
+        className={`min-w-[100vw] absolute top-[calc(100%+10px)] -right-4 border-b overflow-hidden bg-white`}
       >
         {option.reverse().map((item) => {
           return (
@@ -125,6 +121,10 @@ const DropDown = () => {
             </li>
           );
         })}
+        <li className="flex items-center justify-end gap-2 lg:ml-8 select-none leading-6 text-sm px-4 py-2">
+          <span>Greg Gregor</span>
+          <img src="../../logoGG.png" alt="logo" />
+        </li>
       </motion.ul>
     </div>
   );
