@@ -76,7 +76,7 @@ const Navbar = () => {
         <div className="flex items-center min-w-fit mr-12">
           <img
             className="w-10 h-10 shadow rounded-md"
-            src="/images/logo.png"
+            src="/public/images/logo.png"
             alt="logo"
           />
           <div className="text-sm leading-4 ml-2 md:text-base md:leading-5 select-none">
@@ -105,7 +105,7 @@ const Navbar = () => {
             );
           })}
           <li className="flex items-center gap-2 lg:ml-8 select-none">
-            <img src="/images/logoGG.png" alt="logo" />
+            <img src="/public/images/logoGG.png" alt="logo" />
             <span>Greg Gregor</span>
           </li>
         </ul>
