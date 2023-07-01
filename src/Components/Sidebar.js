@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/global.css";
 
 const Sidebar = () => {
   return (

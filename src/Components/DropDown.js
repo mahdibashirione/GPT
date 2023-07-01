@@ -1,6 +1,7 @@
 import { Link } from "gatsby";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import "../styles/global.css";
 
 const DropDown = () => {
   const [isOpen, setIsOpen] = useState(false);

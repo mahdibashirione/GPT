@@ -1,6 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
 import DropDown from "./DropDown";
+import "../styles/global.css";
 
 const Navbar = () => {
   const option = [
