@@ -2,7 +2,7 @@ import * as React from "react";
 import Layout from "../Layout/Layout";
 import Welcome from "../Components/Welcome";
 import SendBox from "../Components/SendBox";
-import Navbar from "../Components/Navbar";
+import "../styles/global.css";
 
 const HomePage = () => {
   return (
