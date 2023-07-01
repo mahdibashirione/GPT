@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import "../styles/global.css";
+import useToast from "../hooks/useToast";
 
 const SendBox = () => {
   const [text, setText] = useState("");
+  const { toastError } = useToast();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text.length > 0) {
       setText("");
     } else {
-      alert("Ops!!");
+      toastError("Ops!!");
     }
   };
 

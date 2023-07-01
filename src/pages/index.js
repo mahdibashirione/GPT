@@ -1,17 +1,22 @@
 import * as React from "react";
-import Layout from "../Layout/Layout";
 import Welcome from "../Components/Welcome";
 import SendBox from "../Components/SendBox";
 import "../styles/global.css";
+import { Toaster } from "react-hot-toast";
+import Navbar from "../Components/Navbar";
 
 const HomePage = () => {
   return (
-    <Layout>
-      <section className="min-h-[calc(100vh-89px)] overflow-hidden mt-[61px] md:mt-[73px] container">
-        <Welcome />
-        <SendBox />
-      </section>
-    </Layout>
+    <>
+      <Navbar />
+      <main className="container mt-[61px] md:mt-[73px]">
+        <section className="overflow-hidden container">
+          <Welcome />
+          <SendBox />
+        </section>
+      </main>
+      <Toaster position="top-center" reverseOrder={false} />
+    </>
   );
 };
 

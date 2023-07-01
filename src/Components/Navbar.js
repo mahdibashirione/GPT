@@ -74,11 +74,7 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 lg:left-auto mx-auto backdrop-blur-sm whitespace-nowrap px-4 py-2.5 md:py-4 border-b w-full">
       <div className="flex container justify-between">
         <div className="flex items-center min-w-fit mr-12">
-          <img
-            className="w-10 h-10 shadow rounded-md"
-            src="/public/images/logo.png"
-            alt="logo"
-          />
+          <img src="../../logo.png" alt="logo" />
           <div className="text-sm leading-4 ml-2 md:text-base md:leading-5 select-none">
             <span>Standard plan</span>
             <p className="text-[#00A739] text-sm flex items-center gap-1">
@@ -87,7 +83,6 @@ const Navbar = () => {
             </p>
           </div>
         </div>
-        <button></button>
         <ul className="hidden md:flex gap-4 min-w-fit">
           {option.map((item) => {
             return (
@@ -105,7 +100,7 @@ const Navbar = () => {
             );
           })}
           <li className="flex items-center gap-2 lg:ml-8 select-none">
-            <img src="/public/images/logoGG.png" alt="logo" />
+            <img src="../../logoGG.png" alt="logo" />
             <span>Greg Gregor</span>
           </li>
         </ul>
