@@ -79,7 +79,7 @@ const DropDown = () => {
   };
 
   return (
-    <div className="md:hidden relative min-w-fit flex items-center">
+    <div className="md:hidden min-w-fit flex items-center">
       <button
         onClick={isOpen ? handleCluseDropDown : handleOpenDropDown}
         className="flex flex-col gap-1.5 overflow-hidden"
@@ -103,7 +103,7 @@ const DropDown = () => {
       <motion.ul
         initial={{ maxHeight: "0" }}
         animate={isOpen ? { maxHeight: "200px" } : { maxHeight: "0" }}
-        className={`min-w-[100vw] absolute top-[calc(100%+10px)] -right-4 border-b overflow-hidden bg-white`}
+        className={`w-full absolute top-full right-0 overflow-hidden bg-white border-b`}
       >
         {option.reverse().map((item) => {
           return (

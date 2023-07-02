@@ -15,176 +15,74 @@ const SendBox = () => {
     }
   };
 
-  const options = [
-    {
-      id: 1,
-      title: "Translate",
-      icon: (
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M2 3.33333H10M6 2V3.33333M6.69867 9.66667C5.67207 8.6039 4.85032 7.36088 4.27467 6M8.33333 12H13M7.33333 14L10.6667 7.33333L14 14M8.50067 3.33333C7.85533 7.18 5.38 10.4067 2 12.086"
-            stroke="#585858"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      ),
-    },
-    {
-      id: 2,
-      title: "Improve",
-      icon: (
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M9.88245 1.6001L11.1026 4.89757L14.4001 6.11775L11.1026 7.33792L9.88245 10.6354L8.66228 7.33792L5.3648 6.11775L8.66228 4.89757L9.88245 1.6001Z"
-            stroke="#585858"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M4.23539 9.12951L5.30128 10.6989L6.87069 11.7648L5.30128 12.8307L4.23539 14.4001L3.16951 12.8307L1.6001 11.7648L3.16951 10.6989L4.23539 9.12951Z"
-            stroke="#585858"
-            strokeLinejoin="round"
-          />
-        </svg>
-      ),
-    },
-    {
-      id: 3,
-      title: "Make longer",
-      icon: (
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M14.4001 1.6001V14.4001M1.6001 1.6001V14.4001M10.3797 6.4001L12.0001 8.0001M12.0001 8.0001L10.3797 9.6001M12.0001 8.0001H4.0001M5.62047 9.6001L4.0001 8.0001M4.0001 8.0001L5.62047 6.4001"
-            stroke="#585858"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      ),
-    },
-    {
-      id: 4,
-      title: "Make shorter",
-      icon: (
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M7.99989 14.4001L7.99989 1.6001M4.26317 6.25464L6.07655 8.0001M6.07655 8.0001L4.26317 9.74555M6.07655 8.0001H1.6001M11.737 9.74555L9.92364 8.0001M9.92364 8.0001L11.737 6.25464M9.92364 8.0001L14.4001 8.0001"
-            stroke="#585858"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      ),
-    },
-  ];
-
   return (
-    <aside className="fixed bottom-0 left-0 w-full py-4 px-2">
-      <div className="w-full max-w-[600px] pt-9 mx-auto z-10 relative">
-        {/* Options */}
-        <div className="absolute w-full top-0 flex items-center justify-between text-sm gap-4">
-          <ul className="text-gray-500 flex gap-2 overflow-x-scroll scrollbar-none">
-            {options.map((item) => {
-              return (
-                <li
-                  key={item.id}
-                  className="py-1 px-2 rounded-md border bg-gray-200 shadow flex items-center gap-2 min-w-fit select-none cursor-pointer duration-150 active:scale-95"
-                >
-                  {item.icon}
-                  {item.title}
-                </li>
-              );
-            })}
-          </ul>
-          <button className="min-w-fit flex font-semibold items-center active:scale-95 duration-150">
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 26 26"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g filter="url(#filter0_d_1_250)">
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M19.7484 2.49626C19.3048 2.05667 18.5861 2.05695 18.1429 2.49687L13.0313 7.57014L12.7989 7.33963C11.6857 7.931 10.5146 8.39626 9.26258 8.60329C7.75104 8.85325 6.22887 8.95542 4.69812 8.95542C4.26727 14.0854 8.29397 18.435 13.5016 17.9653L13.6834 17.6046C14.2614 16.4575 14.8237 14.7754 15.2345 13.4166C15.5222 12.465 15.7846 11.5068 16.0277 10.5432L15.8885 10.4051L21.0009 5.33105C21.4442 4.89093 21.4438 4.17738 21.0002 3.73757L19.7484 2.49626ZM14.0631 8.59395L14.8566 9.38126L19.7398 4.53475L18.946 3.74768L14.0631 8.59395ZM10.8268 9.7266L13.9033 12.779C14.1274 12.0268 14.3048 11.3769 14.4089 10.9847L12.5157 9.10626C12.1294 9.27871 11.5408 9.51816 10.8268 9.7266ZM13.412 14.3391L9.1297 10.0903C7.86528 10.2807 6.75732 10.3549 6.07826 10.3842C6.17148 13.827 9.3166 16.631 12.5574 16.5812C12.8506 15.9352 13.1438 15.1413 13.412 14.3391Z"
-                  fill="black"
+    <aside className="absolute bottom-0 left-0 w-full py-4 px-2">
+      <div className="w-full max-w-[600px] min-w-[280px] pt-8 mx-auto z-10 relative">
+        {/* New Dialog */}
+        <button className="absolute top-0 left-0 min-w-fit flex font-semibold items-center active:scale-95 duration-150">
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 26 26"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g filter="url(#filter0_d_1_250)">
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M19.7484 2.49626C19.3048 2.05667 18.5861 2.05695 18.1429 2.49687L13.0313 7.57014L12.7989 7.33963C11.6857 7.931 10.5146 8.39626 9.26258 8.60329C7.75104 8.85325 6.22887 8.95542 4.69812 8.95542C4.26727 14.0854 8.29397 18.435 13.5016 17.9653L13.6834 17.6046C14.2614 16.4575 14.8237 14.7754 15.2345 13.4166C15.5222 12.465 15.7846 11.5068 16.0277 10.5432L15.8885 10.4051L21.0009 5.33105C21.4442 4.89093 21.4438 4.17738 21.0002 3.73757L19.7484 2.49626ZM14.0631 8.59395L14.8566 9.38126L19.7398 4.53475L18.946 3.74768L14.0631 8.59395ZM10.8268 9.7266L13.9033 12.779C14.1274 12.0268 14.3048 11.3769 14.4089 10.9847L12.5157 9.10626C12.1294 9.27871 11.5408 9.51816 10.8268 9.7266ZM13.412 14.3391L9.1297 10.0903C7.86528 10.2807 6.75732 10.3549 6.07826 10.3842C6.17148 13.827 9.3166 16.631 12.5574 16.5812C12.8506 15.9352 13.1438 15.1413 13.412 14.3391Z"
+                fill="black"
+              />
+            </g>
+            <path
+              d="M3.83333 13.8333L4.05841 14.4415L4.66667 14.6666L4.05841 14.8917L3.83333 15.4999L3.60826 14.8917L3 14.6666L3.60826 14.4415L3.83333 13.8333Z"
+              fill="black"
+            />
+            <path
+              d="M5.08333 15.5L5.64602 17.0206L7.16667 17.5833L5.64602 18.146L5.08333 19.6667L4.52064 18.146L3 17.5833L4.52064 17.0206L5.08333 15.5Z"
+              fill="black"
+            />
+            <defs>
+              <filter
+                id="filter0_d_1_250"
+                x="0.666504"
+                y="2.16675"
+                width="24.6665"
+                height="23.8333"
+                filterUnits="userSpaceOnUse"
+                colorInterpolationFilters="sRGB"
+              >
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
                 />
-              </g>
-              <path
-                d="M3.83333 13.8333L4.05841 14.4415L4.66667 14.6666L4.05841 14.8917L3.83333 15.4999L3.60826 14.8917L3 14.6666L3.60826 14.4415L3.83333 13.8333Z"
-                fill="black"
-              />
-              <path
-                d="M5.08333 15.5L5.64602 17.0206L7.16667 17.5833L5.64602 18.146L5.08333 19.6667L4.52064 18.146L3 17.5833L4.52064 17.0206L5.08333 15.5Z"
-                fill="black"
-              />
-              <defs>
-                <filter
-                  id="filter0_d_1_250"
-                  x="0.666504"
-                  y="2.16675"
-                  width="24.6665"
-                  height="23.8333"
-                  filterUnits="userSpaceOnUse"
-                  colorInterpolationFilters="sRGB"
-                >
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feColorMatrix
-                    in="SourceAlpha"
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    result="hardAlpha"
-                  />
-                  <feOffset dy="4" />
-                  <feGaussianBlur stdDeviation="2" />
-                  <feComposite in2="hardAlpha" operator="out" />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in2="BackgroundImageFix"
-                    result="effect1_dropShadow_1_250"
-                  />
-                  <feBlend
-                    mode="normal"
-                    in="SourceGraphic"
-                    in2="effect1_dropShadow_1_250"
-                    result="shape"
-                  />
-                </filter>
-              </defs>
-            </svg>
-            New dialog
-          </button>
-        </div>
+                <feOffset dy="4" />
+                <feGaussianBlur stdDeviation="2" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_1_250"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_1_250"
+                  result="shape"
+                />
+              </filter>
+            </defs>
+          </svg>
+          New dialog
+        </button>
         {/* Input */}
         <form onSubmit={handleSubmit}>
           <input
