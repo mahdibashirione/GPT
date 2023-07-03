@@ -6,5 +6,13 @@ module.exports = {
     title: `my testing gatsby`,
     siteUrl: `https://www.yourdomain.tld`,
   },
-  plugins: ["gatsby-plugin-postcss"],
+  plugins: [
+    "gatsby-plugin-postcss",
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "src/images/logo.png",
+      },
+    },
+  ],
 };

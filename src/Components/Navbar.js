@@ -71,7 +71,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="col-start-2 col-end-3 row-start-1 row-end-2 lg:left-auto mx-auto backdrop-blur-sm z-20 whitespace-nowrap p-2.5 w-full relative min-w-[280px]">
+    <header className="col-start-2 col-end-3 row-start-1 row-end-2 lg:left-auto mx-auto backdrop-blur-sm z-20 whitespace-nowrap p-2.5 w-full relative">
       <div className="flex container justify-between">
         <div className="flex items-center min-w-fit mr-12">
           <img src="../../logo.png" alt="logo" />

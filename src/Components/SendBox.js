@@ -17,7 +17,7 @@ const SendBox = () => {
 
   return (
     <aside className="absolute bottom-0 left-0 w-full py-4 px-2">
-      <div className="w-full max-w-[600px] min-w-[280px] pt-8 mx-auto z-10 relative">
+      <div className="w-full max-w-[600px] pt-8 mx-auto z-10 relative">
         {/* New Dialog */}
         <button className="absolute top-0 left-0 min-w-fit flex font-semibold items-center active:scale-95 duration-150">
           <svg
