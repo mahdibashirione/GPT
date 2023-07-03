@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { FiChevronRight } from "react-icons/fi";
 import "../styles/global.css";
 import ModeCheanger from "./ModeCheanger";
-import VersionCheanger from "./versionCheanger";
 import { motion } from "framer-motion";
+import VersionCheanger from "./VersionCheanger";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);

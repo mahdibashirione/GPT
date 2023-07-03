@@ -18,6 +18,7 @@
     "autoprefixer": "^10.4.14",
     "framer-motion": "^10.12.18",
     "gatsby": "^5.11.0",
+    "gatsby-plugin-manifest": "^5.11.0",
     "gatsby-plugin-postcss": "^6.11.0",
     "postcss": "^8.4.24",
     "react": "^18.2.0",
