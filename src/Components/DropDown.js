@@ -85,17 +85,17 @@ const DropDown = () => {
         className="flex flex-col gap-1.5 overflow-hidden"
       >
         <span
-          className={`w-5 h-[2px] block bg-zinc-900 duration-200 ${
+          className={`w-5 h-[2px] block dark:bg-white bg-zinc-900 duration-200 ${
             isOpen && "translate-y-[8px] rotate-45"
           }`}
         ></span>
         <span
-          className={`w-5 h-[2px] block bg-zinc-900 duration-200 ${
+          className={`w-5 h-[2px] block dark:bg-white bg-zinc-900 duration-200 ${
             isOpen && "-translate-x-6"
           }`}
         ></span>
         <span
-          className={`w-5 h-[2px] block bg-zinc-900 duration-200 ${
+          className={`w-5 h-[2px] block dark:bg-white bg-zinc-900 duration-200 ${
             isOpen && "-translate-y-[8px] -rotate-45"
           }`}
         ></span>
@@ -103,7 +103,7 @@ const DropDown = () => {
       <motion.ul
         initial={{ maxHeight: "0" }}
         animate={isOpen ? { maxHeight: "200px" } : { maxHeight: "0" }}
-        className={`w-full absolute top-full right-0 overflow-hidden bg-white border-b`}
+        className={`w-full absolute top-full right-0 overflow-hidden bg-white dark:bg-zinc-900 border-b dark:border-gray-500`}
       >
         {option.reverse().map((item) => {
           return (
@@ -113,7 +113,7 @@ const DropDown = () => {
                 onClick={handleCluseDropDown}
                 className={`${
                   item.title === "Upgrade Plan" && "text-[#D69D0B]"
-                } px-4 py-2 flex items-center gap-2 text-sm leading-6 w-full justify-end hover:bg-gray-100`}
+                } px-4 py-2 flex items-center gap-2 text-sm leading-6 w-full justify-end hover:bg-gray-100 dark:hover:bg-zinc-800`}
               >
                 {item.title}
                 {item.icon}
@@ -121,10 +121,6 @@ const DropDown = () => {
             </li>
           );
         })}
-        <li className="flex items-center justify-end gap-2 lg:ml-8 select-none leading-6 text-sm px-4 py-2">
-          <span>Greg Gregor</span>
-          <img src="../../logoGG.png" alt="logo" />
-        </li>
       </motion.ul>
     </div>
   );

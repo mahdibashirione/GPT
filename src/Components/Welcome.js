@@ -107,17 +107,13 @@ const Welcome = () => {
           return (
             <li
               key={item.id}
-              className={`col-span-1 p-4 border-2 rounded-md flex flex-col gap-2 min-w-[150px] hover:border-blue-400 duration-200 select-none group cursor-pointer items-center lg:items-start ${
+              className={`col-span-1 p-4 border rounded-md flex flex-col gap-2 min-w-[150px] select-none items-center lg:items-start dark:border-gray-500 ${
                 item.title === "Limitations" && "md:col-span-2 lg:col-span-1"
               }`}
             >
               {item.icon && item.icon}
-              {item.title && (
-                <span className={`group-hover:text-blue-500 duration-200`}>
-                  {item.title}
-                </span>
-              )}
-              <p className="group-hover:text-blue-500 duration-200 text-[12px] leading-4 md:text-sm text-gray-400 decoration-slice text-center lg:text-left">
+              {item.title && <span>{item.title}</span>}
+              <p className="text-[12px] leading-4 md:text-sm text-gray-400 decoration-slice text-center lg:text-left">
                 {item.desc}
               </p>
             </li>

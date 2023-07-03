@@ -2,6 +2,7 @@ import { Link } from "gatsby";
 import React from "react";
 import DropDown from "./DropDown";
 import "../styles/global.css";
+import ThemeChanger from "./ThemeChanger";
 
 const Navbar = () => {
   const option = [
@@ -71,7 +72,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="col-start-2 col-end-3 row-start-1 row-end-2 lg:left-auto mx-auto backdrop-blur-sm z-20 whitespace-nowrap p-2.5 w-full relative">
+    <header className="dark:text-white col-start-2 col-end-3 row-start-1 row-end-2 lg:left-auto mx-auto backdrop-blur-sm z-20 whitespace-nowrap py-2.5 px-3 w-full relative xl:border-r">
       <div className="flex container justify-between">
         <div className="flex items-center min-w-fit mr-12">
           <img src="../../logo.png" alt="logo" />
@@ -99,12 +100,11 @@ const Navbar = () => {
               </li>
             );
           })}
-          <li className="flex items-center gap-2 lg:ml-8 select-none">
-            <img src="../../logoGG.png" alt="logo" />
-            <span>Greg Gregor</span>
-          </li>
         </ul>
-        <DropDown />
+        <div className="flex items-center gap-2">
+          <ThemeChanger />
+          <DropDown />
+        </div>
       </div>
     </header>
   );

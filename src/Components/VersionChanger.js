@@ -3,7 +3,7 @@ import useToast from "../hooks/useToast";
 import { FiChevronDown } from "react-icons/fi";
 import { motion } from "framer-motion";
 
-const VersionCheanger = () => {
+const VersionChanger = () => {
   const options = [
     { id: 1, version: "3.5" },
     { id: 2, version: "4" },
@@ -22,7 +22,7 @@ const VersionCheanger = () => {
     <div className="relative w-full mt-2">
       <button
         onClick={(e) => setIsOpen(!isOpen)}
-        className={`w-full font-semibold flex items-center px-4 py-2 border rounded-lg justify-between duration-200 ${
+        className={`dark:border-gray-500 w-full font-semibold flex items-center px-4 py-2 border rounded-lg justify-between duration-200 ${
           isOpen && "shadow"
         }`}
       >
@@ -34,7 +34,8 @@ const VersionCheanger = () => {
       <motion.ul
         initial={{ maxHeight: "0" }}
         animate={{ maxHeight: isOpen ? "100px" : "0" }}
-        className={`overflow-hidden absolute top-[calc(100%+8px)] rounded-lg ${
+        transition={{ duration: 0.1 }}
+        className={`overflow-hidden absolute top-[calc(100%+8px)] rounded-lg dark:border-gray-500 ${
           isOpen && "divide-y shadow border"
         } w-full shadow duration-200`}
       >
@@ -55,4 +56,4 @@ const VersionCheanger = () => {
   );
 };
 
-export default VersionCheanger;
+export default VersionChanger;

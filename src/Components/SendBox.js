@@ -16,10 +16,10 @@ const SendBox = () => {
   };
 
   return (
-    <aside className="absolute bottom-0 left-0 w-full py-4 px-2">
+    <aside className="absolute bottom-0 left-0 w-full py-4 px-3">
       <div className="w-full max-w-[600px] pt-8 mx-auto z-10 relative">
         {/* New Dialog */}
-        <button className="absolute top-0 left-0 min-w-fit flex font-semibold items-center active:scale-95 duration-150">
+        <button className="absolute top-0 right-0 min-w-fit flex font-semibold items-center active:scale-95 duration-150">
           <svg
             width="26"
             height="26"
@@ -32,7 +32,7 @@ const SendBox = () => {
                 fillRule="evenodd"
                 clipRule="evenodd"
                 d="M19.7484 2.49626C19.3048 2.05667 18.5861 2.05695 18.1429 2.49687L13.0313 7.57014L12.7989 7.33963C11.6857 7.931 10.5146 8.39626 9.26258 8.60329C7.75104 8.85325 6.22887 8.95542 4.69812 8.95542C4.26727 14.0854 8.29397 18.435 13.5016 17.9653L13.6834 17.6046C14.2614 16.4575 14.8237 14.7754 15.2345 13.4166C15.5222 12.465 15.7846 11.5068 16.0277 10.5432L15.8885 10.4051L21.0009 5.33105C21.4442 4.89093 21.4438 4.17738 21.0002 3.73757L19.7484 2.49626ZM14.0631 8.59395L14.8566 9.38126L19.7398 4.53475L18.946 3.74768L14.0631 8.59395ZM10.8268 9.7266L13.9033 12.779C14.1274 12.0268 14.3048 11.3769 14.4089 10.9847L12.5157 9.10626C12.1294 9.27871 11.5408 9.51816 10.8268 9.7266ZM13.412 14.3391L9.1297 10.0903C7.86528 10.2807 6.75732 10.3549 6.07826 10.3842C6.17148 13.827 9.3166 16.631 12.5574 16.5812C12.8506 15.9352 13.1438 15.1413 13.412 14.3391Z"
-                fill="black"
+                className="fill-black dark:fill-white"
               />
             </g>
             <path
@@ -88,7 +88,7 @@ const SendBox = () => {
           <input
             onChange={(e) => setText(e.target.value)}
             value={text}
-            className="w-full pl-12 border border-gray-400 py-2 backdrop-blur bg-transparent rounded-md focus:border-blue-500 outline-none focus:ring-2 ring-blue-200 pr-16"
+            className="w-full pl-12 border border-gray-400 py-2 backdrop-blur bg-transparent rounded-md focus:border-blue-500 outline-none focus:ring-2 ring-blue-200 dark:ring-transparent pr-16"
             type="text"
             placeholder="Send a message "
           />
@@ -118,20 +118,6 @@ const SendBox = () => {
             stroke="#919191"
             strokeWidth="1.5"
             strokeLinecap="round"
-          />
-        </svg>
-        <svg
-          className="w-5 h-5 absolute bottom-3 right-10"
-          viewBox="0 0 20 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3.66492 9.31428C3.88644 10.8364 4.64857 12.2278 5.81187 13.2341C6.97518 14.2403 8.46188 14.7941 10 14.7941M10 14.7941C11.5381 14.7941 13.0248 14.2403 14.1881 13.2341C15.3514 12.2278 16.1136 10.8364 16.3351 9.31428M10 14.7941V18M10.0009 2C9.27347 2 8.57581 2.28898 8.06142 2.80336C7.54704 3.31775 7.25806 4.01541 7.25806 4.74286V8.4C7.25806 9.12745 7.54704 9.82511 8.06142 10.3395C8.57581 10.8539 9.27347 11.1429 10.0009 11.1429C10.7284 11.1429 11.426 10.8539 11.9404 10.3395C12.4548 9.82511 12.7438 9.12745 12.7438 8.4V4.74286C12.7438 4.01541 12.4548 3.31775 11.9404 2.80336C11.426 2.28898 10.7284 2 10.0009 2Z"
-            stroke="#919191"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
           />
         </svg>
       </div>

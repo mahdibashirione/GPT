@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FiCheck } from "react-icons/fi";
 import useToast from "../hooks/useToast";
 
-const ModeCheanger = () => {
+const ModeChanger = () => {
   const options = [
     {
       id: 1,
@@ -24,8 +24,10 @@ const ModeCheanger = () => {
   const [selectedMode, setSelectedMode] = useState("Balanced mode");
 
   const handleCheangeMode = (titleMode) => {
-    setSelectedMode(titleMode);
-    toastSuccess(`cheange to ${titleMode}`);
+    if (selectedMode !== titleMode) {
+      setSelectedMode(titleMode);
+      toastSuccess(`cheange to ${titleMode}`);
+    }
   };
 
   return (
@@ -38,14 +40,18 @@ const ModeCheanger = () => {
               <button
                 onClick={(e) => handleCheangeMode(mode.title)}
                 className={`border rounded-lg p-2 duration-200 ${
-                  selectedMode === mode.title && "shadow shadow-zinc-400"
+                  selectedMode === mode.title
+                    ? "border-blue-500"
+                    : "dark:border-gray-500"
                 }`}
               >
                 <div className="flex gap-3">
                   <span
                     className={`${
-                      selectedMode === mode.title && "bg-[#636363]"
-                    } border border-dashed border-[#636363] rounded-full flex items-center justify-center w-6 h-6 duration-200`}
+                      selectedMode === mode.title
+                        ? "bg-blue-500 border-transparent"
+                        : "border-[#636363]"
+                    } border border-dashed rounded-full flex items-center justify-center w-6 h-6 duration-200`}
                   >
                     <FiCheck
                       className={`text-sm ${
@@ -67,4 +73,4 @@ const ModeCheanger = () => {
   );
 };
 
-export default ModeCheanger;
+export default ModeChanger;
