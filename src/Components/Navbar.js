@@ -3,6 +3,7 @@ import React from "react";
 import DropDown from "./DropDown";
 import "../styles/global.css";
 import ThemeChanger from "./ThemeChanger";
+import { FiSettings } from "react-icons/fi";
 
 const Navbar = () => {
   const option = [
@@ -103,6 +104,9 @@ const Navbar = () => {
         </ul>
         <div className="flex items-center gap-2">
           <ThemeChanger />
+          <Link to="/settings" className="text-xl mr-2 lg:hidden">
+            <FiSettings />
+          </Link>
           <DropDown />
         </div>
       </div>

@@ -4,10 +4,13 @@ import { FiSun, FiMoon, FiChevronDown } from "react-icons/fi";
 import useToast from "../hooks/useToast";
 
 const ThemeChanger = () => {
-  const [theme, setTheme] = useState(
-    JSON.parse(localStorage.getItem("theme-irgpt")) || "Light"
-  );
+  const [theme, setTheme] = useState("Light");
   const { toastSuccess } = useToast();
+
+  useEffect(() => {
+    const localTheme = JSON.parse(localStorage.getItem("theme-irgpt"));
+    localTheme && setTheme(localTheme);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("theme-irgpt", JSON.stringify(theme));
