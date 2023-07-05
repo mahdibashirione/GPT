@@ -13,9 +13,11 @@ const VersionChanger = () => {
   const { toastSuccess } = useToast();
 
   const handleCheangeVersion = (version) => {
-    setSelectedVersion(version);
-    toastSuccess(`Version to ${version}`);
-    setIsOpen(false);
+    if (selectedVersion !== version) {
+      setSelectedVersion(version);
+      toastSuccess(`Version to ${version}`);
+      setIsOpen(false);
+    }
   };
 
   return (
