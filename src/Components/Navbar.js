@@ -85,15 +85,18 @@ const Navbar = () => {
             </p>
           </div>
         </div>
-        <ul className="hidden md:flex gap-4 min-w-fit">
+        <ul className="hidden md:flex min-w-fit">
           {option.map((item) => {
             return (
-              <li key={item.id} className="flex items-center">
+              <li
+                key={item.id}
+                className="flex items-center dark:hover:bg-zinc-800 hover:bg-zinc-900/10 duration-200 rounded-lg"
+              >
                 <Link
                   to="/"
                   className={`${
                     item.title === "Upgrade Plan" && "text-[#D69D0B]"
-                  } px-2 flex items-center gap-2 text-sm leading-5`}
+                  } px-4 flex items-center gap-2 text-sm leading-5 h-full`}
                 >
                   {item.title}
                   {item.icon}
@@ -101,8 +104,11 @@ const Navbar = () => {
               </li>
             );
           })}
+          <li className="flex items-center">
+            <ThemeChanger />
+          </li>
         </ul>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 lg:hidden">
           <ThemeChanger />
           <Link to="/settings" className="text-xl mr-2 lg:hidden">
             <FiSettings />

@@ -6,4 +6,13 @@
   .scrollbar-none::-webkit-scrollbar {
     display: none;
   }
+
+  @font-face {
+    font-family: "Vazirmatn";
+    src: url("/fonts/Vazirmatn.ttf");
+  }
+
+  html {
+    font-family: "Vazirmatn";
+  }
 }

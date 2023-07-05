@@ -65,7 +65,7 @@ const Welcome = () => {
           <path
             d="M24.3334 21V23M24.3334 27H24.3434M17.4054 31H31.2614C32.8014 31 33.7634 29.333 32.9934 28L26.0654 16C25.2954 14.667 23.3714 14.667 22.6014 16L15.6734 28C14.9034 29.333 15.8654 31 17.4054 31Z"
             stroke="#919191"
-            strokeLidth="2"
+            strokelidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
           />

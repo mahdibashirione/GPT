@@ -32,17 +32,17 @@ const ModeChanger = () => {
 
   return (
     <div>
-      <h3 className="text-2xl font-semibold">Mode</h3>
+      <h3 className="text-2xl font-bold">Mode</h3>
       <ul className="flex flex-col gap-2 overflow-hidden p-2">
         {options.map((mode) => {
           return (
             <li key={mode.id}>
               <button
                 onClick={(e) => handleCheangeMode(mode.title)}
-                className={`border rounded-lg p-2 duration-200 ${
+                className={`border rounded-lg p-3 duration-200 ${
                   selectedMode === mode.title
                     ? "border-blue-500"
-                    : "dark:border-gray-500"
+                    : "dark:border-gray-500 border-gray-300"
                 }`}
               >
                 <div className="flex gap-3">
