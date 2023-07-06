@@ -1,17 +1,65 @@
-import * as React from "react";
-import Welcome from "../Components/Welcome";
+import React, { useEffect, useState } from "react";
 import SendBox from "../Components/SendBox";
 import "../styles/global.css";
 import Layout from "../Layout/Layout";
+import MessageList from "../Components/MessageList";
+import http from "../services/httpServices";
+import Welcome from "../Components/Welcome";
 
 const HomePage = () => {
+  const API_KEY = "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";
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    const localMessage =
+      JSON.parse(localStorage.getItem("irgpt-messages")) || [];
+    setMessages(localMessage);
+  }, []);
+  // useEffect(() => {
+  //   localStorage.setItem("irgpt-messages", JSON.stringify(messages));
+  // }, [messages]);
+
+  const handleNewMessage = (newMessage) => {
+    const copyMessages = [...messages];
+    const updatedMessages = [...copyMessages, newMessage];
+    setMessages(updatedMessages);
+    console.log(messages);
+  };
+
+  const Send_Message = async () => {
+    const apiRequestBody = {
+      model: "gpt-3.5-turbo",
+      messages: [...messages],
+    };
+
+    try {
+      const { data } = await http.post(
+        "https://api.openai.com/v1/chat/completions",
+        JSON.stringify(apiRequestBody),
+        {
+          headers: {
+            Authorization: "Bearer " + API_KEY,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+    } catch (error) {
+      handleNewMessage({
+        role: "error",
+        content:
+          "You exceeded your current quota, please check your plan and billing details.",
+      });
+    }
+  };
+
   return (
     <Layout>
       <main className="row-span-1 col-span-full lg:col-span-1 px-2 relative border-t dark:border-gray-500 min-w-[280px] xl:border-r">
-        <section className="overflow-scroll h-full max-h-[100vh-69px] scrollbar-none pb-28">
-          <Welcome />
-        </section>
-        <SendBox />
+        {messages.length ? <MessageList messages={messages} /> : <Welcome />}
+        <SendBox
+          handleSend={Send_Message}
+          handleNewMessage={handleNewMessage}
+        />
       </main>
     </Layout>
   );

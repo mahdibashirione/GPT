@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "../styles/global.css";
 
-const SendBox = () => {
+const SendBox = ({ handleNewMessage, handleSend }) => {
   const [text, setText] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (text.length > 0) {
+      handleNewMessage({ role: "user", content: text });
+      await handleSend();
       setText("");
     }
   };
