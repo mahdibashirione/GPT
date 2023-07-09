@@ -19,7 +19,7 @@ const VersionChanger = () => {
 
   return (
     <article className="mt-4">
-      <h3 className="text-xl lg:text-2xl font-bold">Version</h3>
+      <h3 className="text-xl font-semibold">Version</h3>
       <div className="flex items-center mt-1 p-1 border dark:border-gray-500 border-gray-300 rounded-lg">
         {options.map((mode) => {
           return (

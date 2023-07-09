@@ -1,8 +1,14 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import "../styles/global.css";
+import useToast from "../hooks/useToast";
 
 const SendBox = ({ handleNewMessage, handleSend }) => {
+  const { toastSuccess } = useToast();
   const [text, setText] = useState("");
+  const [isNewDialogPopUp, setIsNewDialogPopUp] = useState(false);
+  const localMessages =
+    JSON.parse(localStorage.getItem("irgpt-messages")) || [];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -12,12 +18,31 @@ const SendBox = ({ handleNewMessage, handleSend }) => {
       setText("");
     }
   };
+  const handleNewDialog = (text) => {
+    switch (text) {
+      case "ok": {
+        localStorage.clear("irgpt-messages");
+        toastSuccess("please wait");
+        setIsNewDialogPopUp(false);
+        window.location.reload();
+        break;
+      }
+      case "cancel": {
+        setIsNewDialogPopUp(false);
+        break;
+      }
+    }
+  };
 
   return (
     <aside className="absolute bottom-0 left-0 w-full py-4 px-3">
       <div className="w-full max-w-[600px] pt-8 mx-auto z-10 relative">
         {/* New Dialog */}
-        <button className="absolute top-0 right-0 min-w-fit flex font-semibold items-center active:scale-95 duration-150">
+        <button
+          disabled={localMessages.length > 0 ? false : true}
+          onClick={(e) => setIsNewDialogPopUp(true)}
+          className="absolute top-0 right-0 min-w-fit flex font-semibold items-center active:scale-95 duration-150"
+        >
           <svg
             width="26"
             height="26"
@@ -119,6 +144,36 @@ const SendBox = ({ handleNewMessage, handleSend }) => {
           />
         </svg>
       </div>
+      <motion.aside
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{
+          scale: isNewDialogPopUp ? 1 : 0,
+          opacity: isNewDialogPopUp ? 1 : 0,
+        }}
+        className="fixed flex items-center justify-center top-0 left-0 h-screen w-screen z-50 bg-zinc-800/50 backdrop-blur-lg"
+      >
+        <div className="bg-white max-w-[300px] w-full dark:bg-zinc-900 rounded-lg p-4">
+          <span>Do you want to start a new conversation ?</span>
+          <p className="text-sm text-gray-500">
+            Note that if you start a new conversation, your current conversation
+            will be deleted!
+          </p>
+          <div className="flex gap-2 mt-4">
+            <button
+              onClick={(e) => handleNewDialog("cancel")}
+              className="text-gray-500 w-20 py-2.5 text-center rounded-lg"
+            >
+              cancel
+            </button>
+            <button
+              onClick={(e) => handleNewDialog("ok")}
+              className="bg-blue-500 text-white w-20 py-2.5 text-center rounded-lg"
+            >
+              ok
+            </button>
+          </div>
+        </div>
+      </motion.aside>
     </aside>
   );
 };

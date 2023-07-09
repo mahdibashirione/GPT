@@ -15,17 +15,17 @@ const HomePage = () => {
       JSON.parse(localStorage.getItem("irgpt-messages")) || [];
     setMessages(localMessage);
   }, []);
-  // useEffect(() => {
-  //   localStorage.setItem("irgpt-messages", JSON.stringify(messages));
-  // }, [messages]);
+  useEffect(() => {
+    localStorage.setItem("irgpt-messages", JSON.stringify(messages));
+  }, [messages]);
 
   const handleNewMessage = (newMessage) => {
-    const copyMessages = [...messages];
-    const updatedMessages = [...copyMessages, newMessage];
+    const localMessages =
+      JSON.parse(localStorage.getItem("irgpt-messages")) || [];
+    const updatedMessages = [...localMessages, newMessage];
     setMessages(updatedMessages);
     console.log(messages);
   };
-
   const Send_Message = async () => {
     const apiRequestBody = {
       model: "gpt-3.5-turbo",
@@ -54,13 +54,10 @@ const HomePage = () => {
 
   return (
     <Layout>
-      <main className="row-span-1 col-span-full lg:col-span-1 px-2 relative border-t dark:border-gray-500 min-w-[280px] xl:border-r">
+      <main className="row-span-1 h-[calc(100vh-69px)] col-span-full lg:col-span-1 px-2 relative min-w-[280px] overflow-y-scroll scrollbar-none ">
         {messages.length ? <MessageList messages={messages} /> : <Welcome />}
-        <SendBox
-          handleSend={Send_Message}
-          handleNewMessage={handleNewMessage}
-        />
       </main>
+      <SendBox handleSend={Send_Message} handleNewMessage={handleNewMessage} />
     </Layout>
   );
 };

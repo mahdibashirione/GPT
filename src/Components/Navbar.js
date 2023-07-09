@@ -73,9 +73,9 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="dark:text-white lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2 col-span-1 row-span-1 lg:left-auto mx-auto backdrop-blur-sm z-20 whitespace-nowrap py-2.5 px-3 w-full relative xl:border-r">
+    <header className="dark:text-white col-span-1 row-span-1 lg:left-auto mx-auto backdrop-blur-sm z-20 whitespace-nowrap py-2.5 px-3 w-full relative border-b dark:border-gray-500">
       <div className="flex container justify-between">
-        <div className="flex items-center min-w-fit mr-12">
+        <div className="flex items-center min-w-fit">
           <img src="../../logo.png" alt="logo" />
           <div className="text-sm leading-4 ml-2 md:text-base md:leading-5 select-none">
             <span>Standard plan</span>
@@ -104,13 +104,17 @@ const Navbar = () => {
               </li>
             );
           })}
-          <li className="flex items-center">
-            <ThemeChanger />
-          </li>
-        </ul>
-        <div className="flex items-center gap-2 lg:hidden">
           <ThemeChanger />
-          <Link to="/settings" className="text-xl mr-2 lg:hidden">
+          <Link
+            to="/settings"
+            className="text-xl mr-2 flex items-center px-4 dark:hover:bg-zinc-800 rounded-lg duration-200"
+          >
+            <FiSettings />
+          </Link>
+        </ul>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeChanger />
+          <Link to="/settings" className="text-xl mr-3">
             <FiSettings />
           </Link>
           <DropDown />
