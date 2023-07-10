@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import "../styles/global.css";
 import useToast from "../hooks/useToast";
@@ -7,8 +7,7 @@ const SendBox = ({ handleNewMessage, handleSend }) => {
   const { toastSuccess } = useToast();
   const [text, setText] = useState("");
   const [isNewDialogPopUp, setIsNewDialogPopUp] = useState(false);
-  const localMessages =
-    JSON.parse(localStorage.getItem("irgpt-messages")) || [];
+  const [localMessages, setLocalMessages] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,6 +32,11 @@ const SendBox = ({ handleNewMessage, handleSend }) => {
       }
     }
   };
+
+  useEffect(() => {
+    const messages = JSON.parse(localStorage.getItem("irgpt-messages")) || [];
+    messages && setLocalMessages(messages);
+  }, []);
 
   return (
     <aside className="absolute bottom-0 left-0 w-full py-4 px-3">
