@@ -45,11 +45,11 @@ const SendBox = ({ handleNewMessage, handleSend }) => {
         <button
           disabled={localMessages.length > 0 ? false : true}
           onClick={(e) => setIsNewDialogPopUp(true)}
-          className="absolute top-0 right-0 min-w-fit flex font-semibold items-center active:scale-95 duration-150"
+          className="bg-white rounded p-2 pb-1 text-sm absolute -top-2 shadow border right-0 min-w-fit flex font-semibold items-center active:scale-95 duration-150"
         >
           <svg
-            width="26"
-            height="26"
+            width="22"
+            height="22"
             viewBox="0 0 26 26"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

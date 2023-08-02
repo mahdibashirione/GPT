@@ -9,6 +9,7 @@ import Welcome from "../Components/Welcome";
 const HomePage = () => {
   const API_KEY = "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";
   const [messages, setMessages] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const localMessage =
@@ -31,7 +32,7 @@ const HomePage = () => {
       model: "gpt-3.5-turbo",
       messages: [...messages],
     };
-
+    setLoading(true);
     try {
       const { data } = await http.post(
         "https://api.openai.com/v1/chat/completions",
@@ -43,19 +44,25 @@ const HomePage = () => {
           },
         }
       );
+      setLoading(false);
     } catch (error) {
       handleNewMessage({
         role: "error",
         content:
           "You exceeded your current quota, please check your plan and billing details.",
       });
+      setLoading(false);
     }
   };
 
   return (
     <Layout>
       <main className="row-span-1 h-[calc(100vh-69px)] col-span-full lg:col-span-1 px-2 relative min-w-[280px] overflow-y-scroll scrollbar-none ">
-        {messages.length ? <MessageList messages={messages} /> : <Welcome />}
+        {messages.length ? (
+          <MessageList loading={loading} messages={messages} />
+        ) : (
+          <Welcome />
+        )}
       </main>
       <SendBox handleSend={Send_Message} handleNewMessage={handleNewMessage} />
     </Layout>
